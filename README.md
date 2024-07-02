@@ -1,15 +1,17 @@
+Introduction:
 The Virtual Doctor project leverages machine learning to provide preliminary medical diagnoses based on user-reported symptoms. 
 This tool aims to offer quick, accessible health insights, potentially assisting users in identifying common diseases and understanding the necessary precautions and remedies.
 By inputting symptoms, users receive a probable diagnosis, recommended precautions, and remedies, streamlining the initial steps in health care management.
 
-Libraries Used:
+*Libraries Used:
 1. Flask: For creating the web application.
 2. Pandas: For data manipulation and analysis.
 3. Scikit-learn: For machine learning model building and evaluation.
 4. Joblib: For saving and loading the trained model.
 5. SpeechRecognition: For voice input functionality.
 
-Libraries Installation:
+*Libraries Installation:
+
 1. Flask
 Flask is a lightweight web framework for Python.
   for macOS & Linux:
