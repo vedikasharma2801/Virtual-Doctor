@@ -53,7 +53,7 @@ SpeechRecognition is a library for performing speech recognition with support fo
     for macOS & Linux:
       pip install SpeechRecognition
       
-![Virtual Doctor (1)](https://github.com/vedikasharma2801/Virtual-Doctor/assets/143111522/f13f8f78-2a06-42d5-b545-b5c79ca594ca)
+
 
 
 ​
