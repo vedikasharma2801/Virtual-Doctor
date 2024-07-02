@@ -1,0 +1,212 @@
+<!--Perfect UI(comma-separated input included)-->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Doctor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Virtual Doctor</h1>
+        <img src="{{ url_for('static', filename='img/doctor.jpeg') }}" alt="Doctor" class="doctor-img">
+        <p id="greeting">Welcome! Please enter your symptoms below to get a diagnosis.</p>
+        <input type="text" id="symptoms-input" placeholder="Enter Symptoms (comma-separated)">
+        <div class="buttons">
+            <button onclick="getDiagnosis()">Diagnose</button>
+            <button onclick="startRecognition()">Speak Symptoms</button>
+        </div>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        // Greeting message
+        window.addEventListener('load', () => {
+            const greeting = document.getElementById('greeting');
+            const plainTextGreeting = 'Welcome! Please enter your symptoms below to get a diagnosis.';
+            const speech = new SpeechSynthesisUtterance(plainTextGreeting);
+            speechSynthesis.speak(speech);
+        });
+        
+        function getDiagnosis() {
+            const symptoms = document.getElementById('symptoms-input').value.trim();
+            fetch('/diagnose', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ symptoms }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('result').innerHTML = `
+                    <h2>Diagnosis</h2>
+                    <p><strong>Disease:</strong> ${data.disease}</p>
+                    <p><strong>Precautions:</strong> ${data.precautions}</p>
+                    <p><strong>Remedies:</strong> ${data.remedies}</p>
+                `;
+                const speech = new SpeechSynthesisUtterance(`Disease: ${data.disease}. Precautions: ${data.precautions}. Remedies: ${data.remedies}`);
+                window.speechSynthesis.speak(speech);
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+        function startRecognition() {
+            const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+            recognition.lang = 'en-US';
+            recognition.start();
+
+            recognition.onresult = function(event) {
+                const symptoms = event.results[0][0].transcript;
+                const symptomsArray = symptoms.split(' ').join(', ');
+                document.getElementById('symptoms-input').value = symptomsArray;
+            };
+
+            recognition.onerror = function(event) {
+                console.error('Error occurred in recognition: ' + event.error);
+            };
+        }
+    </script>
+</body>
+</html> -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Doctor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Virtual Doctor</h1>
+        <img src="{{ url_for('static', filename='img/doctor.jpeg') }}" alt="Doctor" class="doctor-img">
+        <p id="greeting">Welcome! Please enter your symptoms below to get a diagnosis.</p>
+        <input type="text" id="symptoms-input" placeholder="Enter Symptoms (comma-separated)">
+        <div class="buttons">
+            <button onclick="getDiagnosis()">Diagnose</button>
+            <button onclick="startRecognition()">Speak Symptoms</button>
+        </div>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        // Greeting message
+        window.addEventListener('load', () => {
+            const greeting = document.getElementById('greeting');
+            const plainTextGreeting = 'Welcome! Please enter your symptoms below to get a diagnosis.';
+            const speech = new SpeechSynthesisUtterance(plainTextGreeting);
+            speechSynthesis.speak(speech);
+        });
+
+        function getDiagnosis() {
+            const symptoms = document.getElementById('symptoms-input').value.trim();
+            fetch('/diagnose', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ symptoms }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('result').innerHTML = `
+                    <h2>Diagnosis</h2>
+                    <p><strong>Disease:</strong> ${data.disease}</p>
+                    <p><strong>Precautions:</strong> ${data.precautions}</p>
+                `;
+                const speech = new SpeechSynthesisUtterance(`Disease: ${data.disease}. Precautions: ${data.precautions}`);
+                window.speechSynthesis.speak(speech);
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+        function startRecognition() {
+            const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+            recognition.lang = 'en-US';
+            recognition.start();
+
+            recognition.onresult = function(event) {
+                const symptoms = event.results[0][0].transcript;
+                document.getElementById('symptoms-input').value = symptoms;
+            };
+
+            recognition.onerror = function(event) {
+                console.error('Error occurred in recognition: ' + event.error);
+            };
+        }
+    </script>
+</body>
+</html>
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Virtual Doctor</title>
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+ </head>
+ <body>
+     <div class="container">
+         <h1>Virtual Doctor</h1>
+         <img src="{{ url_for('static', filename='img/doctor.jpeg') }}" alt="Doctor" class="doctor-img">
+         <p id="greeting">Welcome! Please enter your symptoms below to get a diagnosis.</p>
+         <input type="text" id="symptoms-input" placeholder="Enter Symptoms (comma-separated)">
+         <div class="buttons">
+             <button onclick="getDiagnosis()">Diagnose</button>
+             <button onclick="startRecognition()">Speak Symptoms</button>
+         </div>
+         <div id="result"></div>
+     </div>
+ 
+     <script>
+         // Greeting message
+         window.addEventListener('load', () => {
+             const greeting = document.getElementById('greeting');
+             const plainTextGreeting = 'Welcome! Please enter your symptoms below to get a diagnosis.';
+             const speech = new SpeechSynthesisUtterance(plainTextGreeting);
+             speechSynthesis.speak(speech);
+         });
+         
+         function getDiagnosis() {
+             const symptoms = document.getElementById('symptoms-input').value.trim();
+             fetch('/diagnose', {
+                 method: 'POST',
+                 headers: {
+                     'Content-Type': 'application/json',
+                 },
+                 body: JSON.stringify({ symptoms }),
+             })
+             .then(response => response.json())
+             .then(data => {
+                 document.getElementById('result').innerHTML = `
+                     <h2>Diagnosis</h2>
+                     <p><strong>Disease:</strong> ${data.disease}</p>
+                     <p><strong>Precautions:</strong> ${data.precautions}</p>
+                 `;
+                 const speech = new SpeechSynthesisUtterance(`Disease: ${data.disease}. Precautions: ${data.precautions}`);
+                 window.speechSynthesis.speak(speech);
+             })
+             .catch(error => console.error('Error:', error));
+         }
+ 
+         function startRecognition() {
+             const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+             recognition.lang = 'en-US';
+             recognition.start();
+ 
+             recognition.onresult = function(event) {
+                 const symptoms = event.results[0][0].transcript;
+                 document.getElementById('symptoms-input').value = symptoms;
+             };
+ 
+             recognition.onerror = function(event) {
+                 console.error('Error occurred in recognition: ' + event.error);
+             };
+         }
+     </script>
+ </body>
+ </html>
+ 
