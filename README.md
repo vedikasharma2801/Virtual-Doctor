@@ -22,6 +22,16 @@ Virtual Doctor is an AI-powered medical diagnosis tool that leverages machine le
    ```bash
    git clone https://github.com/vedikasharma2801/virtual-doctor.git
    cd virtual-doctor
+2. Create and activate a virtual environment:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+3. Install the required packages:
+   ```bash
+   pip install -r requirements.txt
+4. Ensure you have the following CSV files in the project directory:
+   `DiseaseAndSymptoms.csv`
+   `DiseasePrecaution.csv`
 
       
 
