@@ -59,7 +59,8 @@ Virtual Doctor is an AI-powered medical diagnosis tool that leverages machine le
 - **DiseaseAndSymptoms.csv**: Contains data on diseases and their associated symptoms.
 - **DiseasePrecaution.csv**: Contains data on diseases and their associated precautions.
 
-## Contributors
+## Contributors:
+- [Vedika Sharma](https://github.com/vedikasharma2801)
 
 ​
 
